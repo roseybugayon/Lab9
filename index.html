@@ -58,6 +58,7 @@
   <section>
     <button id="err">This will cause error</button>
     <button id="throwErr">This will throw an error</button>
+    <button id="custom">Custom Error</button>
   </section>
 
   <script>
@@ -169,7 +170,24 @@
       throw new SyntaxError("There is no middle name!");
     }
   })
+  document.getElementById('custom').addEventListener('click', () => {
+    let user = {
+      name: "Name"
+    }
+   if (!user.lastName) {
+     throw new ErrorThrowing("This is a custom error!");
+   }
+  })
 
   </script>
 </body>
 </html>
+
+<script>
+  class ErrorThrowing extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "CUSTOM ERROR";
+    }
+}
+</script>
