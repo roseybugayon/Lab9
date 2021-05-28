@@ -53,6 +53,11 @@
     <button>End Timer</button>
     <button>Console Trace</button>
     <button>Trigger a Global Error</button>
+    <button>Clear Console</button>
+  </section>
+  <section>
+    <button id="err">This will cause error</button>
+    <button id="throwErr">This will throw an error</button>
   </section>
 
   <script>
@@ -137,6 +142,34 @@
     let error = new ReferenceError('You triggered a global error');
     console.error(error);
   })
+  errorBtns[11].addEventListener('click', () => {
+    console.clear();
+  })
+  document.getElementById('err').addEventListener('click', () => {
+    try {
+      console.log("This button doesn't work");
+      console.lo(print);
+    } catch(err) {
+      alert('Error!');
+    } finally {
+      console.log("This should execute");
+    }
+  })
+  document.getElementById('throwErr').addEventListener('click', () => {
+    let somePerson = {
+      firstName: "John",
+      laastName: "Doe",
+      age: 18
+    }
+    console.log("Meet John:");
+    console.log("First name: " + somePerson.firstName);
+    console.log("Age:" + somePerson.age);
+    console.log("Middle name: ");
+    if (!somePerson.middleName) {
+      throw new SyntaxError("There is no middle name!");
+    }
+  })
+
   </script>
 </body>
 </html>
