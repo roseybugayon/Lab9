@@ -186,6 +186,9 @@
      throw new ErrorThrowing("This is a custom error!");
    }
   })
+  window.onerror = function() {
+      console.log("There was an error!");
+  };
 
   </script>
 </body>
@@ -197,5 +200,5 @@
         super(message);
         this.name = "CUSTOM ERROR";
     }
-}
+  }
 </script>
